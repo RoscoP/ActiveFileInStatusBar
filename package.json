@@ -1,0 +1,26 @@
+{
+	"name": "slnworkspace",
+	"displayName": "slnworkspace",
+	"description": "Open VS SLN files",
+	"version": "0.0.1",
+	"publisher": "TenOclockScholar",
+	"engines": {
+		"vscode": "^0.10.1"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.sayHello"
+	],
+	"main": "./extension",
+	"contributes": {
+		"commands": [{
+			"command": "extension.sayHello",
+			"title": "Hello World"
+		}]
+	},
+	"devDependencies": {
+		"vscode": "0.10.x"
+	}
+}
