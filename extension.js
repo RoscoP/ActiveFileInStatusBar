@@ -13,14 +13,33 @@ function activate(context) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
-	var disposable = vscode.commands.registerCommand('extension.sayHello', function () {
+	// var disposable = vscode.commands.registerCommand('extension.sayHello', function () {
 		// The code you place here will be executed every time your command is executed
 
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World!');
-	});
-	
-	context.subscriptions.push(disposable);
+        var sb = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, -1000000);
+        sb.text = '';
+        sb.command = 'workbench.action.files.copyPathOfActiveFile'
+        sb.tooltip = 'Copy active file to clipboard'
+        sb.show();
+        
+        // vscode.workspace.onDidOpenTextDocument( function textEditorChange(e){
+        //     console.log("DocOpen  : " + e.fileName);
+        //     sb.text = e.fileName;
+        // });
+        // vscode.workspace.onDidChangeTextDocument( function textEditorChange(e){
+        //     console.log("DocChange: " + e.document.fileName);
+        //     sb.text = e.document.fileName;
+        // });
+        // vscode.workspace.onDidCloseTextDocument( function textEditorChange(e){
+        //     console.log("DocClosed: " + e.fileName);
+        //     sb.text = e.fileName;
+        // });
+        vscode.window.onDidChangeActiveTextEditor( function textEditorChange(e){
+            console.log("TextEdit : " + e.document.fileName);
+            sb.text = e.document.isUntitled ? '' : e.document.fileName;
+        });
+
+	context.subscriptions.push(sb);
 }
 exports.activate = activate;
 
