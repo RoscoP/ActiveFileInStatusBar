@@ -1,7 +1,7 @@
 {
-	"name": "slnworkspace",
-	"displayName": "slnworkspace",
-	"description": "Open VS SLN files",
+	"name": "ActiveFileInStatusBar",
+	"displayName": "ActiveFileInStatusBar",
+	"description": "Show active file in statusbar",
 	"version": "0.0.1",
 	"publisher": "TenOclockScholar",
 	"engines": {
@@ -11,7 +11,6 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:workbench.action.files.openFile",
 		"*"
 	],
 	"main": "./extension",
