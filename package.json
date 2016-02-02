@@ -16,10 +16,35 @@
 	"main": "./extension",
 	"contributes": {
 		"commands": [{
-			"command": "extension.sayHello",
-			"title": "Hello World"
-		}]
+			"command": "extension.ActiveFileInStatusBar.copyRelativePath",
+			"title": "Copy Relative Path"
+		}],
+		"configuration": {
+			"type": "object",
+			"title": "ActiveFileInStatusBar configuration",
+			"properties": {
+				"ActiveFileInStatusBar.enable": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable/Disable ActiveFileInStatusBar"
+				},
+				"ActiveFileInStatusBar.fullpath": {
+					"type": "boolean",
+					"default": true, 
+					"description": "Show fullpath or relative path in status bar."
+				},
+				"ActiveFileInStatusBar.showInFileExplorer": {
+					"type": "boolean",
+					"default": false,
+					"description": "On click of the statusbar item show file in the file system explorer."
+				}
+			}
+		}
 	},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/RoscoP/ActiveFileInStatusBar"
+    },
 	"devDependencies": {
 		"vscode": "0.10.x"
 	}

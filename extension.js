@@ -1,49 +1,53 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 var vscode = require('vscode');
+var path = require('path');
+
+var i = 0;
+var sb = null;
+
+function OnCommand( textEditor ) {
+    
+    var config = vscode.workspace.getConfiguration('ActiveFileInStatusBar');
+    var cmd = vscode.commands.getCommands();
+    cmd.then(function(a,b,c){
+        console.log(a);
+    });
+}
+
+function OnStatusBarUpdate( textEditor ) {
+    if( textEditor ){
+        var config = vscode.workspace.getConfiguration('ActiveFileInStatusBar');
+        if( textEditor.document.isUntitled ){
+            sb.text = '';
+            sb.hide();
+        }
+        else {
+            var filePath = textEditor.document.fileName;
+            if (!config.fullpath && vscode.workspace.rootPath){
+                filePath = path.relative(vscode.workspace.rootPath, textEditor.document.fileName);
+            }
+            sb.text = filePath;
+            sb.show();
+        }
+        console.log("TextEdit : " + sb.text);
+    }
+}
+
+function CreateStatusBar() {
+    vscode.commands.registerTextEditorCommand("extension.ActiveFileInStatusBar.OnCommand", OnCommand);
+    var sb = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
+    sb.text = '';
+    sb.command = "extension.ActiveFileInStatusBar.OnCommand"; // 'workbench.action.files.copyPathOfActiveFile'
+    sb.tooltip = 'Copy active file to clipboard';
+    return sb;
+}
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 function activate(context) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "ActiveFileInStatusBar" is now active!'); 
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-	// var disposable = vscode.commands.registerCommand('extension.sayHello', function () {
-		// The code you place here will be executed every time your command is executed
-
-        var sb = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 10000);
-        sb.text = '';
-        sb.command = 'workbench.action.files.copyPathOfActiveFile'
-        sb.tooltip = 'Copy active file to clipboard'
-        
-        // vscode.workspace.onDidOpenTextDocument( function textEditorChange(e){
-        //     console.log("DocOpen  : " + e.fileName);
-        //     sb.text = e.fileName;
-        // });
-        // vscode.workspace.onDidChangeTextDocument( function textEditorChange(e){
-        //     console.log("DocChange: " + e.document.fileName);
-        //     sb.text = e.document.fileName;
-        // });
-        // vscode.workspace.onDidCloseTextDocument( function textEditorChange(e){
-        //     console.log("DocClosed: " + e.fileName);
-        //     sb.text = e.fileName;
-        // });
-        vscode.window.onDidChangeActiveTextEditor( function textEditorChange(e){
-            console.log("TextEdit : " + e.document.fileName);
-            if( e.document.isUntitled ){
-                sb.text = '';
-                sb.hide();    
-            }
-            else {
-                sb.text = e.document.fileName
-                sb.show();    
-            }
-        });
+    
+    sb = CreateStatusBar();
+    vscode.window.onDidChangeActiveTextEditor( OnStatusBarUpdate );
+    OnStatusBarUpdate( vscode.window.activeTextEditor );
 
 	context.subscriptions.push(sb);
 }
