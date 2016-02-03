@@ -33,10 +33,10 @@
 					"default": true, 
 					"description": "Show fullpath or relative path in status bar."
 				},
-				"ActiveFileInStatusBar.showInFileExplorer": {
+				"ActiveFileInStatusBar.revealFile": {
 					"type": "boolean",
 					"default": false,
-					"description": "On click of the statusbar item show file in the file system explorer."
+					"description": "Reveal the active file in the file system."
 				}
 			}
 		}
