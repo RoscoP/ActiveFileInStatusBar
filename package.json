@@ -15,10 +15,6 @@
 	],
 	"main": "./extension",
 	"contributes": {
-		"commands": [{
-			"command": "extension.ActiveFileInStatusBar.copyRelativePath",
-			"title": "Copy Relative Path"
-		}],
 		"configuration": {
 			"type": "object",
 			"title": "ActiveFileInStatusBar configuration",

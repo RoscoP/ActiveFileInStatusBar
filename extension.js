@@ -1,11 +1,7 @@
 var vscode = require('vscode');
 var path = require('path');
 
-var i = 0;
 var sb = null;
-
-function OnCommand( textEditor ) {
-}
 
 function OnStatusBarUpdate( textEditor ) {
     if( textEditor ){
@@ -28,13 +24,11 @@ function OnStatusBarUpdate( textEditor ) {
             sb.text = icon + ' ' + filePath;
             sb.show();
         }
-        console.log("TextEdit : " + sb.text);
     }
 }
 
 function CreateStatusBar() {
     var config = vscode.workspace.getConfiguration('ActiveFileInStatusBar');
-    // vscode.commands.registerTextEditorCommand("extension.ActiveFileInStatusBar.OnCommand", OnCommand);
     var sb = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
     sb.text = '';
     sb.command = 'workbench.action.files.copyPathOfActiveFile';
