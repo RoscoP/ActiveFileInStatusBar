@@ -2,8 +2,8 @@
 	"name": "ActiveFileInStatusBar",
 	"displayName": "ActiveFileInStatusBar",
 	"description": "Show active file in statusbar",
-	"version": "0.0.1",
-	"publisher": "TenOclockScholar",
+	"version": "1.0.0",
+	"publisher": "RoscoP",
 	"engines": {
 		"vscode": "^0.10.1"
 	},
