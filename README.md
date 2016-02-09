@@ -1,7 +1,10 @@
 # Active File In Status Bar #
-[Visual Studio Code](https://code.visualstudio.com/) extension for showing the full path of the currently active file in the status bar. 
+[Visual Studio Code](https://code.visualstudio.com/) extension for showing the full path of the currently active file in the status bar.
 
 ![ActiveFileInStatusBar in action](media/ActiveFileInStatusBar.gif)
+
+## Install ##
+Install [ActiveFileInStatusBar](https://marketplace.visualstudio.com/items?itemName=RoscoP.ActiveFileInStatusBar) directly from the Visual Studio Code extension gallery. 
 
 ## Options ##
 
