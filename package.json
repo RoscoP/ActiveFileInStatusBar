@@ -23,8 +23,8 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.copyActiveFilePath",
-				"title": "Copy active file path"
+				"command": "extension.copyRelativePathOfActiveFile",
+				"title": "Files: Copy Relative Path of Active File"
 			}
 		],
 		"configuration": {
@@ -39,7 +39,7 @@
 				"ActiveFileInStatusBar.fullpath": {
 					"type": "boolean",
 					"default": true,
-					"description": "Show fullpath or relative path in status bar."
+					"description": "Show filepath in status bar."
 				},
 				"ActiveFileInStatusBar.revealFile": {
 					"type": "boolean",

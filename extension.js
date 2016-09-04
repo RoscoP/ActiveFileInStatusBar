@@ -34,10 +34,7 @@ function CopyActiveFilePath() {
     if (config.fullpath) {
         vscode.commands.executeCommand('workbench.action.files.copyPathOfActiveFile');
     } else {
-        filePath = vscode.window.activeTextEditor.document.fileName;
-        relFilePath = path.relative(vscode.workspace.rootPath, filePath);
-        relFilePath = relFilePath.replace('\\', '\\\\') // Because Windows...
-        copy(relFilePath);
+        vscode.commands.executeCommand('extension.copyRelativePathOfActiveFile')
     }
 }
 
@@ -45,7 +42,7 @@ function CreateStatusBar() {
     var config = vscode.workspace.getConfiguration('ActiveFileInStatusBar');
     var sb = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
     sb.text = '';
-    sb.command = 'extension.copyActiveFilePath';
+    sb.command = 'extension.copyRelativePathOfActiveFile';
     if (config.revealFile) {
         sb.command = 'workbench.action.files.revealActiveFileInWindows';
     }
@@ -55,8 +52,11 @@ function CreateStatusBar() {
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 function activate(context) {
-    var copyActiveFileCommand = vscode.commands.registerCommand('extension.copyActiveFilePath', function () {
-        CopyActiveFilePath();
+    var copyActiveFileCommand = vscode.commands.registerCommand('extension.copyRelativePathOfActiveFile', function () {
+        filePath = vscode.window.activeTextEditor.document.fileName;
+        relFilePath = path.relative(vscode.workspace.rootPath, filePath);
+        relFilePath = relFilePath.replace('\\', '\\\\') // Because Windows...
+        copy(relFilePath);
     });
     context.subscriptions.push(copyActiveFileCommand);
 
