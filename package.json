@@ -21,6 +21,12 @@
     "icon_attribution": "Icon made by [Anton Saputro](http://www.flaticon.com/authors/anton-saputro) from [Flaticon](http://www.flaticon.com) is licensed by [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0/)",
 	"main": "./extension",
 	"contributes": {
+		"commands": [
+			{
+				"command": "extension.copyRelativePathOfActiveFile",
+				"title": "Files: Copy Relative Path of Active File"
+			}
+		],
 		"configuration": {
 			"type": "object",
 			"title": "ActiveFileInStatusBar configuration",
@@ -32,8 +38,8 @@
 				},
 				"ActiveFileInStatusBar.fullpath": {
 					"type": "boolean",
-					"default": true, 
-					"description": "Show fullpath or relative path in status bar."
+					"default": true,
+					"description": "Show filepath in status bar."
 				},
 				"ActiveFileInStatusBar.revealFile": {
 					"type": "boolean",
@@ -49,5 +55,8 @@
     },
 	"devDependencies": {
 		"vscode": "0.10.x"
-	}
+	},
+	"dependencies": {
+        "node-clipboard": "1.2.0"
+    }
 }
