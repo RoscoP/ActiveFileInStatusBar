@@ -32,13 +32,18 @@
 				},
 				"ActiveFileInStatusBar.fullpath": {
 					"type": "boolean",
-					"default": true, 
+					"default": true,
 					"description": "Show fullpath or relative path in status bar."
 				},
 				"ActiveFileInStatusBar.revealFile": {
 					"type": "boolean",
 					"default": false,
 					"description": "Reveal the active file in the file system."
+				},
+				"ActiveFileInStatusBar.hideIcon": {
+					"type": "boolean",
+					"default": false,
+					"description": "Hide the icon in status bar."
 				}
 			}
 		}

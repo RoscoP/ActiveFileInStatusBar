@@ -21,7 +21,11 @@ function OnStatusBarUpdate( textEditor ) {
                 icon = '$(file-submodule)';
                 sb.tooltip = 'Reveal file';
             }
-            sb.text = icon + ' ' + filePath;
+            if (config.hideIcon) {
+                sb.text = filePath;
+            } else {
+                sb.text = icon + ' ' + filePath;
+            }
             sb.show();
         }
     }
