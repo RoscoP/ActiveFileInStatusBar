@@ -13,8 +13,10 @@ Install [ActiveFileInStatusBar](https://marketplace.visualstudio.com/items?itemN
 "ActiveFileInStatusBar.enable": true,
 // Show fullpath or relative path in status bar.
 "ActiveFileInStatusBar.fullpath": true,
-// Reveal the active file in the file system. 
+// Reveal the active file in the file system.
 "ActiveFileInStatusBar.revealFile": false,
+// Set text color for the filename in the status bar.
+"ActiveFileInStatusBar.color": "",
 ```
 
 ## Contribute ##
