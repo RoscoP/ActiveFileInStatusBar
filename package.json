@@ -1,53 +1,65 @@
 {
-	"name": "ActiveFileInStatusBar",
-	"displayName": "Active File In StatusBar",
-	"description": "Add statusbar entry to show path for currently active file.",
-	"version": "1.0.2",
-	"publisher": "RoscoP",
-	"engines": {
-		"vscode": "^0.10.1"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"*"
-	],
-    "icon": "media/icon.svg",
-    "galleryBanner": {
-        "theme": "dark",
-        "color": "#614051"
-    },
-    "icon_attribution": "Icon made by [Anton Saputro](http://www.flaticon.com/authors/anton-saputro) from [Flaticon](http://www.flaticon.com) is licensed by [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0/)",
-	"main": "./extension",
-	"contributes": {
-		"configuration": {
-			"type": "object",
-			"title": "ActiveFileInStatusBar configuration",
-			"properties": {
-				"ActiveFileInStatusBar.enable": {
-					"type": "boolean",
-					"default": true,
-					"description": "Enable/Disable ActiveFileInStatusBar"
-				},
-				"ActiveFileInStatusBar.fullpath": {
-					"type": "boolean",
-					"default": true, 
-					"description": "Show fullpath or relative path in status bar."
-				},
-				"ActiveFileInStatusBar.revealFile": {
-					"type": "boolean",
-					"default": false,
-					"description": "Reveal the active file in the file system."
-				}
-			}
-		}
-	},
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/RoscoP/ActiveFileInStatusBar"
-    },
-	"devDependencies": {
-		"vscode": "0.10.x"
-	}
+  "name": "ActiveFileInStatusBar",
+  "displayName": "Active File In StatusBar",
+  "description": "Add statusbar entry to show path for currently active file.",
+  "version": "1.0.3",
+  "publisher": "RoscoP",
+  "engines": {
+    "vscode": "^0.10.1"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "theme": "dark",
+    "color": "#614051"
+  },
+  "icon_attribution": "Icon made by [Anton Saputro](http://www.flaticon.com/authors/anton-saputro) from [Flaticon](http://www.flaticon.com) is licensed by [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0/)",
+  "main": "./extension",
+  "contributes": {
+      "commands": [{
+          "command": "extension.ActiveFileInStatusBarClicked",
+          "title": "ActiveFileInStatusBarClicked"
+      }],
+    "configuration": {
+      "type": "object",
+      "title": "ActiveFileInStatusBar configuration",
+      "properties": {
+        "ActiveFileInStatusBar.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable/Disable ActiveFileInStatusBar"
+        },
+        "ActiveFileInStatusBar.fullpath": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show fullpath or relative path in status bar."
+        },
+        "ActiveFileInStatusBar.revealFile": {
+          "type": "boolean",
+          "default": false,
+          "description": "Reveal the active file in the file system."
+        },
+        "ActiveFileInStatusBar.color": {
+          "type": "string",
+          "default": "",
+          "description": "Set text color for the filename in the status bar."
+        }
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RoscoP/ActiveFileInStatusBar"
+  },
+  "dependencies": {
+    "copy-paste": "^1.2.0"
+  },
+  "devDependencies": {
+    "vscode": "0.10.x"
+  }
 }
