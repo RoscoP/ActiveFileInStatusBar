@@ -18,9 +18,9 @@ function OnStatusBarUpdate( textEditor ) {
                 filePath = vscode.workspace.asRelativePath(textEditor.document.fileName)
                 filePath = path.normalize(filePath)
             }
-            sb.tooltip = 'Copy active file to clipboard';
-            if (config.revealFile) {
-                sb.tooltip = 'Reveal file';
+            if(config.showFolderAsProjectName) {
+                filePath = path.normalize(filePath)
+                filePath = path.dirname(filePath).split(config.showFolderAsProjectName)[0].split('/').slice(-1)[0]
             }
             sb.color = config.color;
             sb.text = filePath;
@@ -33,7 +33,6 @@ function CreateStatusBar() {
     var config = vscode.workspace.getConfiguration('ActiveFileInStatusBar');
     var sb = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, -1);
     sb.text = '';
-    sb.command = 'extension.ActiveFileInStatusBarClicked';
     return sb;
 }
 
@@ -49,21 +48,6 @@ function activate(context) {
 
         context.subscriptions.push(sb);
     }
-
-    // The command has been defined in the package.json file
-    // Now provide the implementation of the command with  registerCommand
-    // The commandId parameter must match the command field in package.json
-    var disposable = vscode.commands.registerCommand('extension.ActiveFileInStatusBarClicked', function (args) {
-        var config = vscode.workspace.getConfiguration('ActiveFileInStatusBar');
-        if (config.revealFile){
-            vscode.commands.executeCommand('workbench.action.files.revealActiveFileInWindows')
-        }
-        else {
-            copypaste.copy(sb.text)
-        }
-    });
-    context.subscriptions.push(disposable);
-
 }
 exports.activate = activate;
 

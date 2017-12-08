@@ -21,10 +21,6 @@
   "icon_attribution": "Icon made by [Anton Saputro](http://www.flaticon.com/authors/anton-saputro) from [Flaticon](http://www.flaticon.com) is licensed by [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0/)",
   "main": "./extension",
   "contributes": {
-      "commands": [{
-          "command": "extension.ActiveFileInStatusBarClicked",
-          "title": "ActiveFileInStatusBarClicked"
-      }],
     "configuration": {
       "type": "object",
       "title": "ActiveFileInStatusBar configuration",
@@ -48,6 +44,11 @@
           "type": "string",
           "default": "",
           "description": "Set text color for the filename in the status bar."
+        },
+        "ActiveFileInStatusBar.showFolderAsProjectName": {
+          "type": "string",
+          "default": null,
+          "description": "Show Foler as Project Name"
         }
       }
     }
