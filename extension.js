@@ -18,6 +18,10 @@ function OnStatusBarUpdate( textEditor ) {
                 filePath = vscode.workspace.asRelativePath(textEditor.document.fileName)
                 filePath = path.normalize(filePath)
             }
+            if(config.showFolderAsProjectName) {
+                filePath = path.normalize(filePath)
+                filePath = path.dirname(filePath).split(config.showFolderAsProjectName)[0].split('/').slice(-1)[0]
+            }
             sb.tooltip = 'Copy active file to clipboard';
             if (config.revealFile) {
                 sb.tooltip = 'Reveal file';
