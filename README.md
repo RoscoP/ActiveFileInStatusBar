@@ -4,7 +4,7 @@
 ![ActiveFileInStatusBar in action](media/ActiveFileInStatusBar.gif)
 
 ## Install ##
-Install [ActiveFileInStatusBar](https://marketplace.visualstudio.com/items?itemName=RoscoP.ActiveFileInStatusBar) directly from the Visual Studio Code extension gallery. 
+Install [ActiveFileInStatusBar](https://marketplace.visualstudio.com/items?itemName=RoscoP.ActiveFileInStatusBar) directly from the Visual Studio Code extension gallery.
 
 ## Options ##
 
@@ -17,6 +17,10 @@ Install [ActiveFileInStatusBar](https://marketplace.visualstudio.com/items?itemN
 "ActiveFileInStatusBar.revealFile": false,
 // Set text color for the filename in the status bar.
 "ActiveFileInStatusBar.color": "",
+// Do I need to search immediately after copying.
+"ActiveFileInStatusBar.searchАfterСopy": false,
+// Regex mask if you need to dissect the path before copying.
+"ActiveFileInStatusBar.regexPath": "string",
 ```
 
 ## Contribute ##

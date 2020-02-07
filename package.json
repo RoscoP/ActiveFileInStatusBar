@@ -48,6 +48,16 @@
           "type": "string",
           "default": "",
           "description": "Set text color for the filename in the status bar."
+        },
+        "ActiveFileInStatusBar.searchАfterСopy": {
+          "type": "boolean",
+          "default": false,
+          "description": "Do I need to search immediately after copying."
+        },
+        "ActiveFileInStatusBar.regexPath": {
+          "type": "string",
+          "default": "",
+          "description": "Regex mask if you need to dissect the path before copying."
         }
       }
     }
