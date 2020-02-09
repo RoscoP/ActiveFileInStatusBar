@@ -59,7 +59,19 @@ function activate(context) {
             vscode.commands.executeCommand('workbench.action.files.revealActiveFileInWindows')
         }
         else {
-            copypaste.copy(sb.text)
+            copypaste.copy(
+                config.regex
+                    ? sb.text.replace(new RegExp(config.regex), '$1')
+                    : sb.text
+            )
+
+            if (config.searchАfterСopy) {
+                vscode.commands.executeCommand('workbench.view.search');
+
+                setTimeout(() => {
+                    vscode.commands.executeCommand('editor.action.clipboardPasteAction');
+                }, 100);
+            }
         }
     });
     context.subscriptions.push(disposable);
