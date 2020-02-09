@@ -54,7 +54,7 @@
           "default": false,
           "description": "Do I need to search immediately after copying."
         },
-        "ActiveFileInStatusBar.regexPath": {
+        "ActiveFileInStatusBar.regex": {
           "type": "string",
           "default": "",
           "description": "Regex mask if you need to dissect the path before copying."

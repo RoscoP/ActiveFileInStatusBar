@@ -20,7 +20,7 @@ Install [ActiveFileInStatusBar](https://marketplace.visualstudio.com/items?itemN
 // Do I need to search immediately after copying.
 "ActiveFileInStatusBar.searchАfterСopy": false,
 // Regex mask if you need to dissect the path before copying.
-"ActiveFileInStatusBar.regexPath": "string",
+"ActiveFileInStatusBar.regex": "string",
 ```
 
 ## Contribute ##

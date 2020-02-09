@@ -60,8 +60,8 @@ function activate(context) {
         }
         else {
             copypaste.copy(
-                config.regexPath
-                    ? new RegExp(config.regexPath).exec(sb.text)
+                config.regex
+                    ? sb.text.replace(new RegExp(config.regex), '$1')
                     : sb.text
             )
 
