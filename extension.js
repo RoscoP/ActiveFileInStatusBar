@@ -5,7 +5,7 @@ var path = require('path');
 var sb = null;
 
 function OnStatusBarUpdate( textEditor ) {
-    textEditor = textEditor ? textEditor : vscode.window.activeTextEditor;
+    textEditor = (textEditor && textEditor.viewColumn) ? textEditor : vscode.window.activeTextEditor;
     if( textEditor ){
         var config = vscode.workspace.getConfiguration('ActiveFileInStatusBar');
         if( !textEditor.document || textEditor.document.isUntitled ){
