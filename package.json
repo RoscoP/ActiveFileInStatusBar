@@ -32,22 +32,22 @@
         "ActiveFileInStatusBar.enable": {
           "type": "boolean",
           "default": true,
-          "description": "Enable/Disable ActiveFileInStatusBar"
+          "description": "Enable/disable ActiveFileInStatusBar"
         },
         "ActiveFileInStatusBar.fullpath": {
           "type": "boolean",
           "default": true,
-          "description": "Show fullpath or relative path in status bar."
+          "description": "Display the active file's full absolute path instead of its relative path from the workspace."
         },
         "ActiveFileInStatusBar.revealFile": {
           "type": "boolean",
           "default": false,
-          "description": "Reveal the active file in the file system."
+          "description": "Upon clicking this extension's status bar component, reveal the active file in the OS file browser (eg. Finder, Explorer)."
         },
         "ActiveFileInStatusBar.color": {
           "type": "string",
           "default": "",
-          "description": "Set text color for the filename in the status bar."
+          "description": "Set the text color for the filename in the status bar."
         }
       }
     }
