@@ -1,5 +1,4 @@
 var vscode = require('vscode');
-var copypaste = require('copy-paste');
 var path = require('path');
 
 var sb = null;
@@ -59,7 +58,7 @@ function activate(context) {
             vscode.commands.executeCommand('workbench.action.files.revealActiveFileInWindows')
         }
         else {
-            copypaste.copy(sb.text)
+            vscode.env.clipboard.writeText(sb.text)
         }
     });
     context.subscriptions.push(disposable);
